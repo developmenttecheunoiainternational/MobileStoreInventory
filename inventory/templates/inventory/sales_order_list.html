@@ -1,0 +1,41 @@
+<!-- inventory/templates/inventory/sales_order_list.html -->
+
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+    <h2>Sales Orders</h2>
+    <a href="{% url 'inventory:add_sales_order' %}" class="btn btn-primary mb-3">Add New Sales Order</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Sales Date</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in sales_orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.customer_name }}</td>
+                    <td>{{ order.sales_date }}</td>
+                    <td>{{ order.total_amount }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>
+                        <!-- Add action links like view, edit, delete -->
+                        <a href="#" class="btn btn-sm btn-info">View</a>
+                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">No sales orders recorded.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

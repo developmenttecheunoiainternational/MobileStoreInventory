@@ -1,0 +1,36 @@
+<!-- inventory/templates/inventory/add_product.html -->
+
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+    <h2>Add New Product</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card mb-3">
+            <div class="card-header">Product Details</div>
+            <div class="card-body">
+                {{ product_form.as_p }}
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">Serial Numbers</div>
+            <div class="card-body" id="serial-numbers">
+                <div class="mb-3">
+                    <input type="text" name="serial_number" class="form-control" placeholder="Serial Number">
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="addSerialNumber()">Add Another Serial Number</button>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+
+    <script>
+        function addSerialNumber() {
+            var container = document.getElementById('serial-numbers');
+            var div = document.createElement('div');
+            div.className = 'mb-3';
+            div.innerHTML = '<input type="text" name="serial_number" class="form-control" placeholder="Serial Number">';
+            container.appendChild(div);
+        }
+    </script>
+{% endblock %}

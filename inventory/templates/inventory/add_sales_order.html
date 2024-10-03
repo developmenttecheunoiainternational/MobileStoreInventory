@@ -1,0 +1,36 @@
+<!-- inventory/templates/inventory/add_sales_order.html -->
+
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+    <h2>Add New Sales Order</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card mb-3">
+            <div class="card-header">Sales Order Details</div>
+            <div class="card-body">
+                {{ sales_order_form.as_p }}
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">Sales Order Items</div>
+            <div class="card-body">
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <div class="sales-order-item mb-3">
+                        {{ form.as_p }}
+                    </div>
+                {% endfor %}
+                <button type="button" class="btn btn-secondary" onclick="addSalesOrderItem()">Add Another Item</button>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Sales Order</button>
+    </form>
+
+    <script>
+        function addSalesOrderItem() {
+            // Implement JavaScript to dynamically add form fields
+            alert('Dynamic addition of sales order items not implemented.');
+        }
+    </script>
+{% endblock %}

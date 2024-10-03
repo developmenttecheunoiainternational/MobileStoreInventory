@@ -1,0 +1,17 @@
+<!-- inventory/templates/inventory/add_supplier.html -->
+
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+    <h2>Add New Supplier</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card mb-3">
+            <div class="card-header">Supplier Details</div>
+            <div class="card-body">
+                {{ form.as_p }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Supplier</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!-- inventory/templates/inventory/add_purchase.html -->
+
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+    <h2>Add New Purchase</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="card mb-3">
+            <div class="card-header">Purchase Details</div>
+            <div class="card-body">
+                {{ purchase_form.as_p }}
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">Purchase Items</div>
+            <div class="card-body">
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <div class="purchase-item mb-3">
+                        {{ form.as_p }}
+                    </div>
+                {% endfor %}
+                <button type="button" class="btn btn-secondary" onclick="addPurchaseItem()">Add Another Item</button>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Purchase</button>
+    </form>
+
+    <script>
+        function addPurchaseItem() {
+            // Implement JavaScript to dynamically add form fields
+            alert('Dynamic addition of purchase items not implemented.');
+        }
+    </script>
+{% endblock %}

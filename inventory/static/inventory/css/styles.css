@@ -1,0 +1,24 @@
+/* inventory/static/inventory/css/styles.css */
+
+/* Toggle Styles */
+#wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Sidebar Styles */
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+/* Page Content Styles */
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Sidebar Toggle Button */
+#menu-toggle {
+    margin-right: 10px;
+}
