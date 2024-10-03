@@ -1,5 +1,3 @@
-# inventory/models.py
-
 from django.db import models
 
 class Product(models.Model):
